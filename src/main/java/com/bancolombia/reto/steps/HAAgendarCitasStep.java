@@ -21,9 +21,12 @@ import net.thucydides.core.annotations.Step;
 public class HAAgendarCitasStep {
 	
 	HAPrincipalPage principalPage;
-	HAAgregarDoctorPage doctorPage;
-	HAAgregarPacientePage pacientePage;
+	//HAAgregarDoctorPage doctorPage;
+	//HAAgregarPacientePage pacientePage;
 	HAAgendarCitaPage citaPage;
+	
+	
+	//HANavegarMenuStep principal;
 	
 	DoctorDTO doctor;
 	PacienteDTO paciente;
@@ -85,12 +88,12 @@ public class HAAgendarCitasStep {
 	
 	@Step
 	public void irAPaginaPrincipal() {
-		doctorPage.irAPrincipal();
+	//	doctorPage.irAPrincipal();
 	}
 	
 	@Step
 	public void registrarDoctor() {
-		doctorPage.registrarDoctor(doctor);
+		//doctorPage.registrarDoctor(doctor);
 	}
 	
 	@Step
@@ -100,7 +103,7 @@ public class HAAgendarCitasStep {
 	
 	@Step
 	public void registrarPaciente() {
-		pacientePage.registrarPaciente(paciente);
+		//pacientePage.registrarPaciente(paciente);
 	}
 	
 	@Step

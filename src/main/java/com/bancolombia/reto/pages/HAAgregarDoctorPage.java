@@ -28,8 +28,8 @@ public class HAAgregarDoctorPage extends PageObject {
 	@FindBy(xpath="//a[contains(text(), 'Guardar')]")
 	private WebElement btnGuardar;
 	
-	@FindBy(xpath="//a[contains(text(), 'Inicio')]")
-	private WebElement lnkInicio;
+//	@FindBy(xpath="//a[contains(text(), 'Inicio')]")
+//	private WebElement lnkInicio;
 
 	public void diligenciarNombre(String nombre) {
 		inpNombre.sendKeys(nombre);
@@ -61,9 +61,9 @@ public class HAAgregarDoctorPage extends PageObject {
 		btnGuardar.click();
 	}
 	
-	public void irAPrincipal() {
-		lnkInicio.click();
-	}
+//	public void irAPrincipal() {
+//		lnkInicio.click();
+//	}
 	
 	public String seleccionarOpcionListaID(String TipoID) {
 		String opcionList;
