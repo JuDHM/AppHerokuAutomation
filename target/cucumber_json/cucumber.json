@@ -1,0 +1,90 @@
+[
+  {
+    "line": 7,
+    "elements": [
+      {
+        "line": 34,
+        "name": "Agendar citas a traves de la app",
+        "description": "",
+        "id": "agendar-citas-en-la-app-de-heroku;agendar-citas-a-traves-de-la-app;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 5170375321,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "Juan navega a la app de Heroku",
+            "match": {
+              "location": "HAAgendarCitasDefinition.juan_navega_a_la_app_de_Heroku(String\u003e)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "2",
+                  "Error",
+                  "TipoDoctor",
+                  "asanchez",
+                  "juribe",
+                  "20/06/2018",
+                  "Cita Error",
+                  "Error:"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1907824440,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "Juan adiciona una cita con un doctor que no existe",
+            "match": {
+              "location": "HAAgendarCitasDefinition.juan_adiciona_una_cita_con_un_doctor_que_no_existe()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 346355500,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "Juan valida la informacion el mensaje esperado",
+            "match": {
+              "location": "HAAgendarCitasDefinition.juan_valida_la_informacion_el_mensaje_esperado()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Regression"
+          },
+          {
+            "name": "@TestCase2"
+          }
+        ]
+      }
+    ],
+    "name": "Agendar citas en la app de Heroku",
+    "description": "",
+    "id": "agendar-citas-en-la-app-de-heroku",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/AgendarCitas.feature",
+    "tags": [
+      {
+        "name": "@Regression",
+        "type": "Tag",
+        "location": {
+          "line": 6,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

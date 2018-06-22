@@ -20,7 +20,7 @@ import cucumber.api.SnippetType;
 //	
 //}
 
-@CucumberOptions(features = "src/test/resources/features/AgendarCitas.feature", tags = "@TestCase1", snippets = SnippetType.CAMELCASE, plugin = {
+@CucumberOptions(features = "src/test/resources/features/AgendarCitas.feature", tags = "@TestCase2", snippets = SnippetType.CAMELCASE, plugin = {
 "json:target/cucumber_json/cucumber.json" })
 
 @RunWith(RunnerPersonalizado.class)

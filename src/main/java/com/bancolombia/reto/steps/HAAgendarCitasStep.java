@@ -9,8 +9,6 @@ import com.bancolombia.reto.dtos.CitaDTO;
 import com.bancolombia.reto.dtos.DoctorDTO;
 import com.bancolombia.reto.dtos.PacienteDTO;
 import com.bancolombia.reto.pages.HAAgendarCitaPage;
-import com.bancolombia.reto.pages.HAAgregarDoctorPage;
-import com.bancolombia.reto.pages.HAAgregarPacientePage;
 import com.bancolombia.reto.pages.HAPrincipalPage;
 import com.bancolombia.reto.utils.DBManagerExcel;
 import com.codoid.products.fillo.Recordset;
@@ -118,13 +116,18 @@ public class HAAgendarCitasStep {
 	}
 	
 	@Step
-	public void registrarCita() {
+	public void registrarCita(CitaDTO cita, DoctorDTO doctor, PacienteDTO paciente ) {
 		citaPage.registrarCita(cita, doctor, paciente);
 	}
 	
 	@Step
-	public boolean validarMensajeCita() {
+	public boolean validarMensajeCita(CitaDTO cita) {
 		return citaPage.obtenerMensajeEsperado().equalsIgnoreCase(cita.getMensajeEsperado());
+	}
+	
+	@Step
+	public boolean validarTituloError(CitaDTO cita) {
+		return citaPage.obtenerTituloError().equalsIgnoreCase(cita.getMensajeEsperado());
 	}
 	
 }

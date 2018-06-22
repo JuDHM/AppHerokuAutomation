@@ -34,11 +34,11 @@ public class HAAgendarCitasDefinition {
 	
 	
 	@Given("^Juan navega a la app de Heroku$")
-	public void juan_navega_a_la_app_de_Heroku() throws Exception {
-		inicializarData.cargarInformacion();
+	public void juan_navega_a_la_app_de_Heroku(List<String> dataDriven) throws Exception {
+		inicializarData.cargarInformacion(dataDriven);
 		ejecutarNavegacion.navegarAlSitio();
 		//agendarCita.navegarAlSitio();
-		agendarCita.cargarInformacion();
+		//agendarCita.cargarInformacion();
 		System.out.println("1. Navegar en la app de Heroku.");
 	}
 
@@ -62,28 +62,31 @@ public class HAAgendarCitasDefinition {
 		System.out.println("3. Adicionar paciente.");
 	}
 
-//	@When("^Juan adiciona una cita$")
-//	public void juan_adiciona_una_cita() throws Exception {
-//		agendarCita.irOpcionAgendarCita();
-//	    System.out.println("4. Adicionar una cita.");
-//	}
-	
 	@When("^Juan adiciona una cita$")
-	public void juan_adiciona_una_cita(List<String> dataDriven) {
+	public void juan_adiciona_una_cita() {
 		ejecutarNavegacion.irAOpcionCitas();
-		agendarCita.registrarCita();
+		//agendarCita.cargarDataDriven(dataDriven);
+		agendarCita.registrarCita(inicializarData.getCita(), inicializarData.getDoctor(), inicializarData.getPaciente());
 		System.out.println("4. Adicionar cita");
-		/*  agendarCita.cargarDataDriven(dataDriven);
-	    agendarCita.irOpcionAgendarCita();
-	    agendarCita.registrarCita();
-	    System.out.println("4. Agendar cita"); */
 	}
 
 	@Then("^Juan valida la informacion relacionada de la cita$")
 	public void juan_valida_la_informacion_relacionada_de_la_cita() {
-	//	String resultado = agendarCita.validarMensajeCita();
-	/*
-		Assert.assertTrue(agendarCita.validarMensajeCita());
-	    System.out.println("5. Verificar la informacion ingresada."); */
+		Assert.assertTrue(agendarCita.validarMensajeCita(inicializarData.getCita()));
+	    System.out.println("5. Verificar la informacion ingresada.");
 	}
+	
+	@When("^Juan adiciona una cita con un doctor que no existe$")
+	public void juan_adiciona_una_cita_con_un_doctor_que_no_existe() {
+		//inicializarData.cargarInformacion(dataDriven);
+		ejecutarNavegacion.irAOpcionCitas();
+		//agendarCita.cargarDataDriven(dataDriven);
+		agendarCita.registrarCita(inicializarData.getCita(), inicializarData.getDoctor(), inicializarData.getPaciente());
+	}
+
+	@Then("^Juan valida la informacion el mensaje esperado$")
+	public void juan_valida_la_informacion_el_mensaje_esperado() {
+		Assert.assertTrue(agendarCita.validarTituloError(inicializarData.getCita())); 
+	}
+
 }

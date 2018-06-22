@@ -27,6 +27,9 @@ public class HAAgendarCitaPage extends PageObject {
 	@FindBy(css=".panel-body > p")
 	private WebElement lblMensajeExitoso;
 	
+	@FindBy(css=".panel-title")
+	private WebElement lblTituloError;
+	
 	@FindBy(xpath="//a[contains(text(), 'Guardar')]")
 	private WebElement btnGuardar;
 	
@@ -58,5 +61,9 @@ public class HAAgendarCitaPage extends PageObject {
 	
 	public String obtenerMensajeEsperado() {
 		return lblMensajeExitoso.getText();
+	}
+	
+	public String obtenerTituloError() {
+		return lblTituloError.getText();
 	}
 }

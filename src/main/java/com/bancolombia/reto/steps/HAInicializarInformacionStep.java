@@ -2,6 +2,7 @@ package com.bancolombia.reto.steps;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.List;
 import java.util.Properties;
 
 import com.bancolombia.reto.dtos.CitaDTO;
@@ -25,6 +26,10 @@ public class HAInicializarInformacionStep {
 	
 	public PacienteDTO getPaciente() {
 		return paciente;
+	}
+	
+	public CitaDTO getCita() {
+		return cita;
 	}
 	
 	
@@ -62,6 +67,10 @@ public class HAInicializarInformacionStep {
 		}
 	}
 	
+	public void cargarInformacionCita(List<String> dataPrueba) {
+			cita.cargarDataDriven(dataPrueba);
+	}
+	
 	public Properties cargarProperties() {
 		Properties properties = new Properties();
 		try {
@@ -77,7 +86,7 @@ public class HAInicializarInformacionStep {
 	
 	
 	@Step
-	public void cargarInformacion() {
+	public void cargarInformacion(List<String> dataPrueba) {
 		Recordset resultado;
 		/*
 		 * Properties del proyecto
@@ -98,6 +107,9 @@ public class HAInicializarInformacionStep {
 			resultado = manager.leerExcel(properties.getProperty("QueryPaciente")); 
 			resultado.moveNext();
 			cargarInformacionPaciente(resultado);
+			
+			cargarInformacionCita(dataPrueba);
+			
 			
 			} catch (Exception e) {
 				e.printStackTrace();
